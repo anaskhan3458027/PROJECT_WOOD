@@ -1,103 +1,110 @@
 * {
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: Arial, sans-serif;
     padding: 20px;
     margin: 0;
-  }
-  
-  .table-container {
+}
+
+.table-container {
     overflow-x: auto;
     margin: 0 auto;
-  }
-  
-  label, input {
+}
+
+label, input {
     margin-bottom: 10px;
     display: block;
-  }
-  
-  table {
+}
+
+table {
     border-collapse: collapse;
     width: 100%; /* Ensure the table takes the full width */
     max-width: 1200px;
     margin: auto;
     table-layout: auto; /* Auto adjust column width based on content */
-  }
-  
-  th, td {
+}
+
+th, td {
     border: 1px solid black;
     padding: 8px; /* Adjusted for responsive size */
     text-align: center;
     vertical-align: middle;
     font-size: 14px;
-  }
-  
-  thead th {
+}
+
+thead th {
     background-color: #f2f2f2;
-  }
-  
-  input[type="number"] {
+}
+
+input[type="number"] {
     width: 100%; /* Allow inputs to be responsive */
     padding: 5px; /* Comfortable padding for mobile */
     font-size: 14px;
-  }
-  
-  button {
+}
+
+button {
     padding: 10px 20px;
     margin-top: 10px;
     font-size: 16px;
-  }
-  
-  tfoot td {
+}
+
+tfoot td {
     font-weight: bold;
     font-size: 16px;
     padding: 10px;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     th, td {
-      font-size: 12px; /* Smaller font size for mobile screens */
-      padding: 5px; /* Less padding for compact display on mobile */
+        font-size: 12px; /* Smaller font size for mobile screens */
+        padding: 5px; /* Less padding for compact display on mobile */
     }
-  
+
     input[type="number"] {
-      font-size: 12px; /* Adjust input font size for mobile */
-      padding: 4px;
+        font-size: 12px; /* Adjust input font size for mobile */
+        padding: 4px;
     }
-  
+
     button {
-      padding: 8px 16px;
-      font-size: 14px; /* Smaller button size on mobile */
+        padding: 8px 16px;
+        font-size: 14px; /* Smaller button size on mobile */
     }
-  }
-  
-  @media (max-width: 480px) {
+
+    tfoot td {
+        font-size: 14px; /* Smaller footer font on mobile */
+    }
+}
+
+@media (max-width: 480px) {
     th, td {
-      font-size: 5px; /* Even smaller font size for extra small devices */
-      padding: 3px;
+        font-size: 10px; /* Even smaller font size for extra small devices */
+        padding: 3px;
     }
-  
+
     input[type="number"] {
-      font-size: 10px;
-      padding: 3px;
+        font-size: 10px;
+        padding: 3px;
     }
-  
+
     button {
-      padding: 6px 12px;
-      font-size: 12px;
+        padding: 6px 12px;
+        font-size: 12px;
     }
-  
+
     table {
-      width: 100%;
-      table-layout: fixed; /* Ensures even distribution on very small screens */
+        width: 100%;
+        table-layout: fixed; /* Ensures even distribution on very small screens */
     }
-  }
-  
-  @media print {
+
+    tfoot td {
+        font-size: 12px; /* Make sure the footer fits well */
+    }
+}
+
+@media print {
     button {
-      display: none; /* Hide buttons when printing */
+        display: none; /* Hide buttons when printing */
     }
-  }
-  
+}
