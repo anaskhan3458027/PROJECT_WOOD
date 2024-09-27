@@ -31,7 +31,7 @@ th, td {
     padding: 8px; /* Adjusted for responsive size */
     text-align: center;
     vertical-align: middle;
-    font-size: 14px;
+    font-size: 9px;
 }
 
 thead th {
@@ -58,7 +58,7 @@ tfoot td {
 
 @media (max-width: 768px) {
     th, td {
-        font-size: 12px; /* Smaller font size for mobile screens */
+        font-size: 7px; /* Smaller font size for mobile screens */
         padding: 5px; /* Less padding for compact display on mobile */
     }
 
@@ -79,7 +79,7 @@ tfoot td {
 
 @media (max-width: 480px) {
     th, td {
-        font-size: 10px; /* Even smaller font size for extra small devices */
+        font-size: 5px; /* Even smaller font size for extra small devices */
         padding: 3px;
     }
 
