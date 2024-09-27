@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patra Calculation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="table-container">
+    <label for="height">Enter Frozen Height:</label>
+    <input type="number" id="height" placeholder="Enter height" value="4">
+    
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Sr No</th>
+          <th>Length</th>
+          <th>Breadth</th>
+          <th>No of Pieces</th>
+          <th>D (L*B*H*Pieces)</th>
+          <th>D/144</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- First row (template row) -->
+        <tr>
+          <td>1</td>
+          <td><input type="number" placeholder="Length"></td>
+          <td><input type="number" placeholder="Breadth"></td>
+          <td><input type="number" placeholder="No of Pieces" value="10"></td>
+          <td><input type="number" disabled></td>
+          <td><input type="number" disabled></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <!-- Summation Row will be dynamically inserted here -->
+      </tfoot>
+    </table>
+
+    <button id="calculate-all">Calculate All</button>
+    <button onclick="addRow()">Add Row</button>
+    <button onclick="printTable()">Print</button>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
