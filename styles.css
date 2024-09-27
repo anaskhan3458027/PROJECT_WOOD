@@ -75,7 +75,7 @@
   
   @media (max-width: 480px) {
     th, td {
-      font-size: 10px; /* Even smaller font size for extra small devices */
+      font-size: 5px; /* Even smaller font size for extra small devices */
       padding: 3px;
     }
   
