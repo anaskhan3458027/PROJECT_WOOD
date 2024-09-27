@@ -18,6 +18,13 @@ label, input {
     display: block;
 }
 
+/* Adjust the Frozen Height input size */
+input#height {
+    width: 100px;  /* Reduced width */
+    padding: 5px;
+    font-size: 14px;
+}
+
 table {
     border-collapse: collapse;
     width: 100%; /* Ensure the table takes the full width */
@@ -28,7 +35,7 @@ table {
 
 th, td {
     border: 1px solid black;
-    padding: 8px; /* Adjusted for responsive size */
+    padding: 8px;
     text-align: center;
     vertical-align: middle;
     font-size: 9px;
@@ -39,8 +46,8 @@ thead th {
 }
 
 input[type="number"] {
-    width: 100%; /* Allow inputs to be responsive */
-    padding: 5px; /* Comfortable padding for mobile */
+    width: 100%;
+    padding: 5px;
     font-size: 14px;
 }
 
@@ -58,28 +65,28 @@ tfoot td {
 
 @media (max-width: 768px) {
     th, td {
-        font-size: 7px; /* Smaller font size for mobile screens */
-        padding: 5px; /* Less padding for compact display on mobile */
+        font-size: 7px;
+        padding: 5px;
     }
 
     input[type="number"] {
-        font-size: 12px; /* Adjust input font size for mobile */
+        font-size: 12px;
         padding: 4px;
     }
 
     button {
         padding: 8px 16px;
-        font-size: 14px; /* Smaller button size on mobile */
+        font-size: 14px;
     }
 
     tfoot td {
-        font-size: 14px; /* Smaller footer font on mobile */
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
     th, td {
-        font-size: 5px; /* Even smaller font size for extra small devices */
+        font-size: 5px;
         padding: 3px;
     }
 
@@ -95,11 +102,11 @@ tfoot td {
 
     table {
         width: 100%;
-        table-layout: fixed; /* Ensures even distribution on very small screens */
+        table-layout: fixed;
     }
 
     tfoot td {
-        font-size: 12px; /* Make sure the footer fits well */
+        font-size: 12px;
     }
 }
 
@@ -107,4 +114,42 @@ tfoot td {
     button {
         display: none; /* Hide buttons when printing */
     }
+
+    table {
+        width: 100%; /* Ensure the table takes the full width */
+        page-break-inside: auto; /* Allow page breaks inside the table */
+    }
+
+    /* Prevent rows from breaking awkwardly across pages */
+    tbody tr {
+        page-break-inside: avoid; /* Keep rows intact within pages */
+        page-break-after: auto; /* Allow natural breaks */
+    }
+
+    /* Ensure the total is displayed immediately after the last row */
+    tfoot {
+        display: table-footer-group; /* This will keep footer as a group */
+        page-break-inside: avoid; /* Prevent the footer from breaking */
+    }
+
+    /* Prevent page breaks between the last row and the footer */
+    tbody tr:last-child {
+        page-break-after: avoid; /* Keep the last row and total together */
+    }
+
+    /* Ensure total is not repeated on the second page */
+    tfoot tr {
+        page-break-before: auto; /* Prevent any forced breaks before the footer */
+    }
+    
+    /* Hide empty rows for clean printing */
+    tr:empty {
+        display: none; /* Don't display empty rows when printing */
+    }
 }
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Add 20 rows when the page loads
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 1; i++) {
         addRow();
     }
 });
@@ -20,9 +20,20 @@ document.getElementById('calculate-all').addEventListener('click', function() {
         const breadth = parseFloat(row.cells[2].querySelector('input').value);
         const pieces = parseFloat(row.cells[3].querySelector('input').value);
 
+        // Check if only Length is filled but Breadth is empty
+        if (!isNaN(length) && isNaN(breadth)) {
+            alert(`Please enter valid breadth for row ${index + 1}`);
+            return; // Stop further processing for this row
+        }
+
+        // Default value of 0 if fields are not filled
+        const validLength = !isNaN(length) ? length : 0;
+        const validBreadth = !isNaN(breadth) ? breadth : 0;
+        const validPieces = !isNaN(pieces) ? pieces : 0;
+
         // Perform calculation for D (Length * Breadth * Height * No of Pieces)
-        if (!isNaN(length) && !isNaN(breadth) && !isNaN(height) && !isNaN(pieces)) {
-            const d = length * breadth * height * pieces;
+        if (!isNaN(validLength) && !isNaN(validBreadth) && !isNaN(height) && !isNaN(validPieces)) {
+            const d = validLength * validBreadth * height * validPieces;
             row.cells[4].querySelector('input').value = d.toFixed(2); // Update D
             totalD += d;
 
@@ -30,9 +41,7 @@ document.getElementById('calculate-all').addEventListener('click', function() {
             const d144 = d / 144;
             row.cells[5].querySelector('input').value = d144.toFixed(4); // Update D/144
             totalD144 += d144;
-            totalPieces += pieces;
-        } else {
-            alert(`Please enter valid numbers in the required fields for row ${index + 1}`);
+            totalPieces += validPieces;
         }
     });
 
@@ -51,7 +60,7 @@ function addRow() {
             <td>${rowCount}</td>
             <td><input type="number" placeholder="Length"></td>
             <td><input type="number" placeholder="Breadth"></td>
-            <td><input type="number" placeholder="No of Pieces" value="10"></td>
+            <td><input type="number" placeholder="No of Pieces" value="0"></td>
             <td><input type="number" disabled></td>
             <td><input type="number" disabled></td>
         </tr>
@@ -74,7 +83,7 @@ function updateSummationRow(totalPieces, totalD, totalD144) {
     `;
 }
 
-// Function to print the table
+// Function to handle printing the table
 function printTable() {
-    window.print();
+    window.print(); // Use default print functionality
 }
